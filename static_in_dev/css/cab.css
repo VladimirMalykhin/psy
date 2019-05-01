@@ -1,0 +1,42 @@
+body{
+	padding:0px!important;
+	background-color: #f0f3fa;
+}
+.navbar-nav > li > a 
+{
+	color:#b6bcd2!important;
+}
+.categories li a:hover
+{
+	background-color: #e2e4fb;
+	color:#686fb3!important;
+}
+.categories li a
+{
+	color:#7f828b!important;
+}
+.info
+{
+	background-color: #FFFF;
+    border-radius: 1em;
+    /* height: 25vh; */
+    padding-top: 1%;
+    padding-bottom: 2.5%;
+}
+.button-send
+{
+	width: 100%;
+	border-radius: 2px;
+    box-shadow: none;
+    border: 1px solid #e8e8e8;
+    height: 49px;
+    padding: 6px 12px;
+}
+.my-custom-scrollbar {
+  position: relative;
+  height: 200px;
+  overflow: auto;
+}
+.table-wrapper-scroll-y {
+  display: block;
+}

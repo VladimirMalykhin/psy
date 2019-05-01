@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-social.css' %}">
+	<link rel="stylesheet" href="{% static 'css/cab.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}"/>
+
+</head>
+<style>
+	body{
+		background:{{bg}};
+	}
+	</style>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+				<a href="index.html" class="navbar-brand"><img class="brand_logo" src="" alt="logo"></a>
+			</div>
+			<ul class="nav navbar-nav navbar-left mnu_cab">
+					<li><a href=""><i class="far fa-comment"></i></a></li>
+					<li><a href=""><i class="far fa-question-circle"></i></a></li>
+					<li><a href=""><i class="fas fa-user-circle"></i></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3">
+				
+				<div class="mnu_bottom">
+					<div class="clearfix"></div>
+					<ul class="nav categories">
+						 <li><a href="/cabinet"><i class="fas fa-home"></i> Личный кабинет</a></li>
+						 <li><a href="/homework"><i class="fas fa-briefcase"></i> Д/з</a></li>
+						 <li>Общение</li>
+						 <li><a href="/book"><i class="fas fa-book"></i> Электронный дневник</a></li>
+						 <li><a href="/chat"><i class="far fa-comments"></i> Чат с психологом</a></li>
+						 {% if has_music is True %}
+						 <li><a href="/music"><i class="far fa-comments"></i> Музыка
+						 {% endif %}
+						 <li>Сменить аккаунт</li>
+						 <li><a href="/logout">Выйти</a></li>
+		 		 	</ul>
+				</div>
+			</div>
+			<div class="col-sm-8" style="background-color: #FFF; border-radius: 1em;">
+					<h4 class="text-center">Чат с психологом</h4>
+					<hr>
+					<div class="table-wrapper-scroll-y my-custom-scrollbar">
+					<div class="message_output" id="message" style="padding-top: 5%; padding-left: 5%; padding-right: 5%; padding-bottom: 5%; color:#000;">
+						{% for message in messages %}
+						<div class="col-sm-8">
+						{% if message.is_readed is False %}
+						<p>Не прочитано</p>
+
+						{% endif %}
+						{% if message.type_message is 2 %}
+						    <p>Я:</p>
+						    {% else %}
+						    <p>Admin:</p>
+						    {% endif %}
+							<p>{{message.text}}</p>	
+						</div>
+						<div class="col-sm-4 text-right">
+							<p>{{message.created_at}}</p>
+						</div>	
+						{% endfor %}
+						</div>				
+					</div>
+				<form action="" method="post">{% csrf_token %}
+					<table class="table">
+						<tr>
+							<td>
+								{{form}}
+							</td>
+							<td>
+								<input type="submit" class="btn btn-success button-send" value="Отправить">	
+							</td>
+						</tr>
+					</table>
+				</form>
+			
+			</div>
+			
+		</div>
+	</div>
+
+</body>
+
+</html>

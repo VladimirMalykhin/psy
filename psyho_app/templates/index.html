@@ -1,0 +1,496 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Psyho</title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-social.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}"/>
+	
+
+	
+</head>
+<body>
+	<section class="header">
+	<nav class="navbar navbar-dafault navbar-fixed-top shadows">
+		<div class="container ">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+				<a href="index.html" class="navbar-brand"><img class="brand_logo" src="{% static 'img/logos.png'%}" alt="logo"></a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav nav-paddings">
+					<li class="active">
+						<a class="nav-link" href="index.html">Главная</a>
+					</li>
+					<li>
+						<a class="nav-link" href="about.html">О нас</a>
+					</li>
+					<li>
+						<a class="nav-link" href="blog.html">Новости</a>
+					</li>
+					<li>
+						<a class="nav-link" href="#">Тест</a>
+					</li>
+					<li>
+						<a class="nav-link" href="contacts.html">Контакты</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="nav-link" href=""><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>+7(495)-385-55-55</a>
+					</li>
+					<li>
+					   {% if user.username is not 'AnonymousUser' %}
+					   <a class="nav-link" href="/account"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{user.username}}</a>
+					   {% else %}
+						<a class="nav-link" id="myBtn" href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Войти</a>
+<div id="myModal" class="modal">
+<div class="z-indexs">
+<div class="modal-dialog">
+<div class="loginmodal-container">
+<span class="close">&times;</span>
+<h1 class="text-center">Авторизация</h1><br>
+<p class="text-center">Введите пожалуйста свой логин и пароль</p><br/>
+<form method="POST">
+{% csrf_token %}
+ 
+    {{ form }}
+
+<input type="submit" name="login" class="btn btn-success  loginmodal-submit " value="Войти">
+</form>
+</div>
+</div>
+</div>
+</div>
+						{% endif %}
+					   
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>	
+	<div class="bg_header">
+		<div class="container hidden-xs">
+			<div class="row">
+				<div class="col-md-6">
+					<img class="img_header" src="{% static 'img/ggg.png' %}" alt="">
+				</div>
+				<div class="col-md-6">
+					<div class="text_header">
+						<h2>Сайт психологической поддержки</h2>
+						<p style="font-size: 18px;">Мы поможем Вам даже в самых сложных ситуациях
+						   прежде<br/> всего нам нужно понять в чем заключается 
+						   проблема поэтому<br/> пройдите пожалуйста наш 
+						   простой тест после которого вы будете направленны
+						   на бесплатную консультацию.
+						</p>
+						<p class="text-center"><button class="btn btn-success btn-header">Пройти тест</button></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container visible-xs">
+			<div class="row">
+					<div class="col-sm-3">
+						<img class="xs_img_header"  src="{% static 'img/ggg.png' %}" alt=""/>
+					</div>
+					<div class="col-sm-3">
+						<h4 class="text-center">Сайт психологической поддержки</h4>
+						<p style="text-align: justify;">Мы поможем Вам даже в самых сложных ситуациях
+						   прежде всего нам нужно понять в чем заключается	 
+						   проблема поэтому пройдите пожалуйста наш 
+						   простой тест после которого вы будете направленны
+						   на бесплатную консультацию.
+						</p>
+						<p class="text-center"><button class="btn btn-success btn-header">Пройти тест</button></p>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg_say">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 text-center says">
+					<p>Отделите инцидент от лежащей в основе проблемы<br/>
+					Проблема не поведение,а невозможность изменить ситуацию,иметь слезы и смешанные чувства.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section class="about us hidden-xs">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 paddings_bottom">
+				<h2 class="text-center">Почему мы?</h2>
+			</div>
+			<div class="col-md-4">
+				<div class="col-md-2">
+					<img src="{% static 'img/garant.png' %}">
+				</div>
+				<div class="col-md-10">
+					<div class="text-how">
+						<p>Ежедневные</p>
+						<p>программы</p>
+					</div><br/>
+					<div class="description">
+						<p>Мы формируем ежедневные задания которые вы будете выполнять до окончания нашего курса</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="col-md-2">
+					<img src="{% static 'img/proffi.png' %}">
+				</div>
+				<div class="col-md-10">
+					
+					<div class="text-how">
+						<p>Индивидуальный</p> 
+						<p>план</p>
+					</div><br/>
+					<div class="description">
+						<p>Под каждого клиента мы формируем индивидуальный план занятий</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="col-md-2">
+					<img src="{% static 'img/srok.png' %}">
+				</div>
+				<div class="col-md-10">
+					<div class="text-how">
+						<p>Ежедневная работа</p>
+						<p>над самим собой</p>
+					</div>
+					<br/>
+					<div class="description">
+						<p>Каждый день вы заполняете свой электронный дневник в котором описываете свое состояние</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section class="about_us visible-xs">
+		<div class="container">
+		<div class="row">
+			<div class="col-md-12 paddings_bottom">
+				<h2 class="text-center">Почему мы?</h2>
+			</div>
+			<div class="col-md-4">
+				<div class="col-md-2 text-center">
+					<img src="{% static 'img/garant.png' %}">
+				</div>
+				<div class="col-md-10">
+					<div class="text-how text-center">
+						<p>Ежедневные</p>
+						<p>программы</p>
+					</div><br/>
+					<div class="description text-justify">
+						<p>Мы формируем ежедневные задания которые вы будете выполнять до окончания нашего курса</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="col-md-2 text-center">
+					<img src="{% static 'img/proffi.png' %}">
+				</div>
+				<div class="col-md-10">
+					
+					<div class="text-how text-center">
+						<p>Индивидуальный</p> 
+						<p>план</p>
+					</div><br/>
+					<div class="description text-justify">
+						<p>Под каждого клиента мы формируем индивидуальный план занятий</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="col-md-2 text-center">
+					<img src="{% static 'img/srok.png' %}">
+				</div>
+				<div class="col-md-10">
+					<div class="text-how text-center">
+						<p>Ежедневная работа</p>
+						<p>над самим собой</p>
+					</div>
+					<br/>
+					<div class="description text-justify">
+						<p>Каждый день вы заполняете свой электронный дневник в котором описываете свое состояние</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section class="news">
+	<div class="bg_header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2>Статьи из нашего блога</h2>
+					<h3>Мы постоянно публикуем полезную информацию в своем блоге</h3>
+				</div>
+				<div class="col-md-4">
+					<img class="image_news" src="{% static 'img/people_01.jpg' %}">
+					<div class="news_description">
+						<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+					</div>
+					<div class="news_author">
+						<div class="left">
+							<p>19.03.2019</p>
+						</div>
+						<div class="right text-right">
+							<p>Author</p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4">
+										<img class="image_news" src="{% static 'img/people_01.jpg' %}">
+					<div class="news_description">
+						<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+					</div>
+					<div class="news_author">
+						<div class="left">
+							<p>19.03.2019</p>
+						</div>
+						<div class="right text-right">
+							<p>Author</p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4">
+										<img class="image_news" src="{% static 'img/people_01.jpg' %}">
+					<div class="news_description">
+						<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+					</div>
+					<div class="news_author">
+						<div class="left">
+							<p>19.03.2019</p>
+						</div>
+						<div class="right text-right">
+							<p>Author</p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section class="how_to_work hidden-xs">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h2>Как это работает?</h2>
+				</div>
+				<table class="table">
+					<tr class="round">
+
+						<td class="text-center borders">
+							<img class="img_process" src="{% static 'img/process-1.png' %}" alt="process_first">
+							<span class="number">1</span>
+							<span class="points">...................................</span>
+						</td>
+						<td class="text-center borders">
+							<img class="img_process" src="{% static 'img/process-2.png' %}" alt="process_first">
+							<span class="number">2</span>
+							<span class="points">...................................</span>
+						</td>
+						<td class="text-center borders">
+							<img class="img_process" src="{% static 'img/process-3.png' %}" alt="process_first">
+							<span class="number">3</span>
+							<span class="points">...................................</span>
+						</td>
+						<td class="text-center borders">
+							<img class="img_process" src="{% static 'img/process-4.png' %}" alt="process_first">
+							<span class="number">4</span>
+						</td>
+					</tr>
+				</table>
+			
+			</div>
+		</div>
+	</section>
+	<section class="visible-xs">
+		<div class="container">
+			<div class="row">
+				<h2 class="text-center">Как это сделано?</h2>
+				<div class="col-md-3">
+						<p class="text-center">
+							<img class="xs-image" src="{% static 'img/process-1.png' %}" alt="process_first">
+						</p>
+				</div>
+				<div class="col-md-3">
+						<p class="text-center">
+							<img class="xs-image" src="{% static 'img/process-2.png' %}" alt="process_second">
+						</p>
+				</div>
+				<div class="col-md-3">
+						<p class="text-center">
+							<img class="xs-image" src="{% static 'img/process-3.png' %}" alt="process_third">
+						</p>
+				</div>
+				<div class="col-md-3">
+						<p class="text-center">
+							<img class="xs-image" src="{% static 'img/process-4.png' %}" alt="process-4">
+						</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="comments">
+		<div class="container">
+			<div class="row">
+				<div class="your-class">
+	    			<div class="col-md-4">
+	    				<div class="recomendation text-center">
+	    					<img class="img_recom" src="{% static 'img/1.png' %}">
+
+	    					<p class="title">Классные специалисты</p>
+	    					<span class="stars"></span>
+	    					<p class="descriptions">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+	    					<p class="name text-center">Валентин Валентинович</p>
+	    				</div>
+	    			</div>
+	    			<div class="col-md-4">
+	    				<div class="recomendation text-center">
+	    					<img class="img_recom" src="{% static 'img/2.png' %}">
+
+	    					<p class="title">Классные специалисты</p>
+	    					<span class="stars"></span>
+	    					<p class="descriptions">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+	    					<p class="name text-center">Валентин Валентинович</p>
+	    					</div>	
+	    			</div>
+	    			<div class="col-md-4">
+	    				<div class="recomendation text-center">
+	    					<img class="img_recom" src="{% static 'img/3.png' %}">
+
+	    					<p class="title">Классные специалисты</p>
+	    					<span class="stars"></span>
+	    					<p class="descriptions">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+	    					<p class="name text-center">Валентин Валентинович</p>
+	    				</div>
+	    			</div>
+	    			<div class="col-md-4">
+	    				<div class="recomendation text-center">
+	    					<img class="img_recom" src="{% static 'img/4.png' %}">
+
+	    					<p class="title">Классные специалисты</p>
+	    					<span class="stars"></span>
+	    					<p class="descriptions">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+	    					<p class="name text-center">Валентин Валентинович</p>
+	    				</div>
+	    			</div>
+	    			<div class="col-md-4">
+	    				<div class="recomendation text-center">
+	    					<img class="img_recom" src="{% static 'img/5.png' %}">
+
+	    					<p class="title">Классные специалисты</p>
+	    					<span class="stars"></span>
+	    					<p class="descriptions">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+	    					<p class="name text-center">Валентин Валентинович</p>
+	    				</div>
+	    			</div>
+	    			<div class="col-md-4">
+	    				<div class="recomendation text-center">
+	    					<img class="img_recom" src="{% static 'img/6.png' %}">
+
+	    					<p class="title">Классные специалисты</p>
+	    					<span class="stars"></span>
+	    					<p class="descriptions">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+	    					<p class="name text-center">Валентин Валентинович</p>
+	    				</div>
+	    			</div>
+  				</div>
+
+			</div>
+		</div>
+
+	</section>
+	<section class="free_consultation">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="text-center" style="color:#FFF; margin-top: 4%;">Запишитесь на бесплатную консультацию <br/> и пройдите тест </h2>
+				</div>
+				<form class="free_form" method="POST" action="">
+					<div class="col-md-4 text-center">
+						<input class="input_free" type="text" value="Имя">
+					</div>
+					<div class="col-md-4 text-center">
+						<input class="input_free" type="text" value="Номер телефона">
+					</div>
+					<div class="col-md-4 text-center">
+						<input class="button_send" type="submit" value="Отправить">
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<a href="index.html" class="navbar-brand"><img class="footer_logo" src="{% static 'img/logos.png' %}" alt="logo"></a>
+				</div>
+				<div class="col-md-4">
+					<ul class="mnu">
+						<li class="text-center"><a class="btn btn-social-icon btn-lg btn-facebook" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-lg']);"><i class="fa fa-facebook"></i></a></li>
+						<li class="text-center"><a class="btn btn-social-icon btn-lg btn-instagram" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-lg']);"><i class="fa fa-instagram"></i></a></li>
+						<li class="text-center"><a class="btn btn-social-icon btn-lg btn-vk" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-lg']);"><i class="fa fa-vk"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 text-center">
+					<div class="rekvizity">
+						<p><span class="glyphicon glyphicon-earphone"></span> +7(495)555-35-35</p> 
+						<p><span class="glyphicon glyphicon-home"> </span> г.Москва Ботанический сад 15 стр 1</p>
+						<p><span class="glyphicon glyphicon-envelope"></span> info@info.ru</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.your-class').slick({
+         slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 1000,
+      });
+    });
+  </script>
+  	<script>
+		window.onscroll = function() {
+	    var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+	  	$(".img_header").css("z-index", "500");
+	}
+
+	</script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
+<!----
+		
+	-!>>>

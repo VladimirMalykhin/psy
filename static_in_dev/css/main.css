@@ -1,0 +1,607 @@
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+body{
+	padding-top: 68px;
+}
+.icon-bar{
+	border:1px solid #000;
+}
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+margin: 15% auto; /* 15% from the top and centered */
+padding: 20px;
+}
+
+/* The Close Button */
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+.loginmodal-container {
+padding: 30px;
+max-width: 350px;
+width: 100% !important;
+background-color: #F7F7F7;
+margin: 0 auto;
+border-radius: 2px;
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+overflow: hidden;
+font-family: roboto;
+}
+
+.loginmodal-container h1 {
+text-align: center;
+font-size: 1.8em;
+font-family: roboto;
+}
+
+.loginmodal-container input[type=submit] {
+width: 100%;
+display: block;
+margin-bottom: 10px;
+position: relative;
+}
+
+.loginmodal-container input[type=text],input[type=number], input[type=password] {
+height: 44px;
+font-size: 16px;
+width: 100%;
+margin-bottom: 10px;
+-webkit-appearance: none;
+background: #fff;
+border: 1px solid #d9d9d9;
+border-top: 1px solid #c0c0c0;
+/* border-radius: 2px; */
+padding: 0 8px;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+}
+
+.loginmodal-container input[type=text]:hover, input[type=password]:hover {
+border: 1px solid #b9b9b9;
+border-top: 1px solid #a0a0a0;
+-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.loginmodal {
+text-align: center;
+font-size: 14px;
+font-family: 'Arial', sans-serif;
+font-weight: 700;
+height: 36px;
+padding: 0 8px;
+/* border-radius: 3px; */
+/* -webkit-user-select: none;
+user-select: none; */
+}
+
+.loginmodal-submit {
+/* border: 1px solid #3079ed; */
+border: 0px;
+color: #fff;
+text-shadow: 0 1px rgba(0,0,0,0.1);
+background-color: #5cb85c;
+border-color: #4cae4c;
+padding: 17px 0px;
+font-family: roboto;
+font-size: 14px;
+/* background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4d90fe), to(#4787ed)); */
+}
+
+.loginmodal-submit:hover {
+/* border: 1px solid #2f5bb7; */
+border: 0px;
+text-shadow: 0 1px rgba(0,0,0,0.3);
+background-color: #34cc34;
+/* background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4d90fe), to(#357ae8)); */
+}
+
+.loginmodal-container a {
+text-decoration: none;
+color: #666;
+font-weight: 400;
+text-align: center;
+display: inline-block;
+opacity: 0.6;
+transition: opacity ease 0.5s;
+}
+
+.login-help{
+font-size: 12px;
+}
+.brand_logo
+{
+	width: 65%;
+	margin-top:-11%;
+	margin-left:19%;
+}
+.navbar-dafault{
+	background-color: #FFFF;
+}
+.bg_header{
+	background-color: #e6e4e5;
+}
+.btn-header{
+	background-color: #c26796;
+	border-color:#c26796;
+	color:#FFFF;
+	padding: 12px 12px;
+}
+.shadows{
+	transition: opacity ease 0.01s;
+    background: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.136);
+}
+.xs_img_header
+{
+	width:86%;
+	margin-left: 69px;
+}
+.bg_say{
+	background-color: #d5b89e;
+}	
+.says{
+	color:#FFFF;
+}
+.text-how p{
+	font-weight: bold;
+	font-size: 15pt;
+	margin:0px;
+    margin: 0px;
+    line-height: 115%;
+}
+.news_description{
+	background-color: #FFFF;
+	color:#000;
+}
+.news_author{
+	background-color: #FFFF;
+	color: #000;
+	padding-top: 4%;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 1%;
+    margin-top:-2%;
+    margin-bottom: 10%;
+}
+.news_description p
+{
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-align: justify;
+}
+
+.image_news
+{
+  width: 100%;
+}
+.left{
+	float: left;
+}
+.round{
+	
+    width: 195px;
+    border-radius: 56%;
+}
+.img_process
+{
+	border:12px solid #f3f3f3; 
+	border-radius: 50%;
+	width:171px; 
+	height:auto;
+}
+.xs-image
+{
+	width: 171px;
+    height: auto;
+    margin: 0px auto;
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    margin: 0px auto;
+    text-align: center;
+}
+.comments
+{
+	height: 570px; /* задаем произвольную высоту и ширину блока */
+	width:100%;
+	background-image: url('../img/sliding-image.jpg');
+	background-size: 100% 100%;
+	animation: animatedBackground 60s linear infinite;
+	-moz-animation: animatedBackground 60s linear infinite;
+	-webkit-animation: animatedBackground 60s linear infinite;
+ 	-o-animation: animatedBackground 60s linear infinite;
+
+}
+.latest_publication
+{
+	margin-top: 6%;
+    margin-bottom: 6%;
+}
+@keyframes animatedBackground {
+    from {
+        background-position: 0 100%, 0 
+    }
+    to {
+         background-position: -1000px 100%, 0 0;/* анимируем свойство background-position */
+    }
+}
+/* Mozilla Firefox 5.0+ */
+@-moz-keyframes animatedBackground {
+    from {
+        background-position: 0 100%, 0 
+    }
+    to {
+         background-position: -1000px 100%, 0 0;/* анимируем свойство background-position */
+    }
+}
+/* Safari 4.0+, Chrome 4.0+ */
+@-webkit-keyframes animatedBackground {
+   from {
+        background-position: 0 100%, 0 
+    }
+    to {
+         background-position: -1000px 100%, 0 0;/* анимируем свойство background-position */
+    }
+}
+/* Opera 12.0+ */
+@-o-keyframes animatedBackground {
+    from {
+        background-position: 0 100%, 0 
+    }
+    to {
+         background-position: -1000px 100%, 0 0;/* анимируем свойство background-position */
+    }
+}
+/* не нужно использовать префикс -ms, так как свойства keyframes и animation поддерживаются с версии IE10 без префикса */
+.slick-next{
+	display: none;
+}
+.free_consultation
+{
+	background-color: #c26796;
+}
+.input_free
+{
+	background-color: #ce85ab;
+    border-width: 0px;
+    border-style: solid;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: #FFF;
+    font-family: Sanchez;
+    font-size: 16px;
+    line-height: 20px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0px;
+    text-transform: none;
+    padding-top: 16px;
+    padding-right: 23px;
+    padding-bottom: 22px;
+    padding-left: 28px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 90%;
+}
+.button_send
+{
+	margin-top: -0.5%;
+    /* text-align: center; */
+    background-color: #d5b89e;
+    border-width: 0px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: #ffffff;
+    font-family: Sanchez;
+    font-size: 16pt;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0px;
+    text-transform: none;
+    height: 63px;
+    line-height: 63px;
+    padding: 0 37px;
+    width: 90%;
+}
+.footer
+{
+	background-color: #4e4e4e;
+	color:#FFF;
+	font-size: 15pt;
+}
+.footer_logo
+{
+	width: 80%;
+    margin-top: 2%;
+}
+.mnu
+{
+	margin-top: 9%;
+    margin-left: 16.5%;
+}
+.mnu li
+{
+	display: inline-block;
+	
+}
+.mnu li a
+{
+	color:#FFF;
+}
+.btn-facebook
+{
+	background-color: #dabea6;
+}
+.btn-instagram
+{
+	background-color: #dabea6;
+}
+.btn-vk
+{
+	background-color: #dabea6;
+}
+.rekvizity
+{
+	margin-top: 4%;
+    margin-bottom: 4%;
+}
+.rekvizity p
+{
+	margin: 0px;
+	padding: 0px;
+}
+.contact-wrapper
+{
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+.form-control{
+  border-radius: 2px;
+  box-shadow: none;
+  border: 1px solid #e8e8e8;
+  height: 49px;
+  padding: 6px 12px;
+  background: #fbfbfb;
+}
+.headers_contacts
+{
+	margin-top: 4.5%;
+	margin-bottom: 4.5%;
+	background-color: #e6e4e5;
+}
+.bg_contacts
+{
+	background-color: #e6e4e5;
+}
+.envelopes p
+{
+	padding: 0px;
+}
+.text-area
+{
+  height: 120px!important;
+}
+.shift_left
+{
+	margin-left: 47%;
+}
+.text
+{
+	margin-top: 6%;
+}
+.text-phone
+{
+	margin-top: 10.5%;
+}
+.categories
+{
+	border-bottom: 1px solid #f5f5f5;
+	overflow:hidden;
+}
+.categories li
+{
+  border: 1px solid #f2f2f2;
+  border-bottom-color: rgb(242, 242, 242);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+/*  padding: 14px 47px 14px 19px;*/
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #000;
+  border-bottom: none;
+}
+/*Media css*/
+@media(max-width: 768px)
+{
+	.comments
+	{
+		height:510px;
+	}
+	.recomendation 
+	{
+	    text-align: center;
+	    margin-top: 27%;
+	    padding-left: 10%;
+	    padding-right: 10%;
+	    padding-bottom: 8%;
+	    padding-top: 8%;
+	    width: 100%;
+	    background-color: #FFF;
+	}
+	.img_recom 
+	{
+    	width: 57px;
+    	height: auto;
+	}
+	.title 
+	{
+	    font-weight: italic;
+	    padding-top: 5%;
+	    padding-bottom: 5%;
+	}
+	.descriptions 
+	{
+	    text-align: justify;
+	}
+	.name
+	{
+		text-align: center;
+    	font-size: 9pt;
+	}
+
+}
+@media (min-width: 768px)
+{
+	  .navbar-nav > li > a 
+	{
+	    padding-top: 24px !important;
+	    padding-bottom: 24px !important;
+	    line-height: 20px;
+	    color:#000;
+	}
+	.navbar-nav > li > a:hover 
+	{
+	  border-bottom:2.5px solid #000;
+	}
+	.img_header{
+		margin-top: -3.5%;
+	    position: relative;
+	    z-index: 1033;
+	}
+	.nav-paddings{
+		margin-left: 22%;
+	}  
+	.text_header{
+		margin-top: 10%;
+	} 
+	.btn-header{
+		width:45%;
+	}
+	.says{
+		color:#FFFF;
+		font-size: 20.5pt;
+		padding-top: 2%;
+		padding-bottom: 1.5%;	
+	}
+	.paddings_bottom
+	{
+		padding-bottom: 2%;
+	}
+	.description{
+		font-size: 12pt;
+	}
+
+	.news_author
+	{
+		margin-top: -2.5%;
+		margin-bottom: 10%;
+	}
+	.points
+	{
+		position: absolute;
+	    top: 42%;
+	    font-size: 14pt;
+	}
+	.table
+	{
+		margin-top: 6%;
+	}
+	.borders{
+		border-top: none!important;
+		position: relative;
+	}
+	.number
+	{
+		position: absolute;
+	    border-radius: 50%;
+	    top: 6%;
+	    left: 59%;
+	    width: 40px;
+	    height: 40px;
+	    line-height: 40px;
+	    text-align: center;
+	    font-size: 20px;
+		color: #ffffff; 
+		background-color: #d5b89e;
+	}
+	.recomendation
+	{
+		margin-left: 10.5%;
+	    text-align: center;
+	    margin-top: 27%;
+	    padding-left: 10%;
+	    padding-right: 10%;
+	    padding-top: 8%;
+	    padding-bottom: 8%;
+	    width: 80%;
+	    background-color: #FFF;
+	}
+	.img_recom{
+    	width: 82px;
+    	height: auto;
+	}
+	.title
+	{
+		font-size: 14pt;
+    	font-weight: italic;
+    	padding-top: 5%;
+    	padding-bottom: 5%;
+	}
+	.descriptions
+	{
+		text-align: justify;
+		font-size: 12pt;
+	}
+	.free_consultation
+	{
+		height: 300px;
+	}
+	.free_form
+	{
+		margin-top: 14%;
+    	margin-bottom: 20%;
+	}
+	 .contacts-item {
+
+    margin-top: -459px;
+    position: relative;
+
+	}
+}
+
+
+
+
+/*end media css*/
