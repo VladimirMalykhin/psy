@@ -13,12 +13,12 @@
 	<script src="{% static 'js/bootstrap.min.js' %}"></script>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}"/>
-	<style>
+</head>
+<style>
 	body{
 		background:{{bg}};
 	}
 	</style>
-</head>
 <body>
 	<div class="container-fluid">
 		<div class="row">
@@ -45,56 +45,37 @@
 				<div class="mnu_bottom">
 					<div class="clearfix"></div>
 					<ul class="nav categories">
-						 <li><a href="{% url 'view' todo_id=user.id %}"><i class="fas fa-home"></i> Личный кабинет</a></li>
-						 <li><a href="{% url 'homeworks_view' todo_id=user.id %}"><i class="fas fa-briefcase"></i> Д/з</a></li>
+						 <li><a href="/account"><i class="fas fa-home"></i> Личный кабинет</a></li>
+						 <li><a href="/homework"><i class="fas fa-briefcase"></i> Д/з</a></li>
 						 <li>Общение</li>
-						 <li><a href="{% url 'book_view' todo_id=user.id %}"><i class="fas fa-book"></i> Электронный дневник</a></li>
-						 <li><a href="{% url 'chat_view' todo_id=user.id %}"><i class="far fa-comments"></i> Чат с клиентом
-                         {% if count > 0 %}
-                         {{ count }}
-                         {% endif %}
-						 </a></li>
+						 <li><a href="/book"><i class="fas fa-book"></i> Электронный дневник</a></li>
+						 <li><a href="/chat"><i class="far fa-comments"></i> Чат с психологом</a></li>
 						 {% if has_music is True %}
-						 <li><a href="{% url 'music_view' todo_id=user.id %}"><i class="far fa-comments"></i> Музыка
+						 <li><a href="/music"><i class="far fa-comments"></i> Музыка
 						 {% endif %}
-                         {% if count > 0 %}
-                         {{ count }}
-                         {% endif %}
-						 </a></li>
 						 <li>Сменить аккаунт</li>
 						 <li><a href="/logout">Выйти</a></li>
 		 		 	</ul>
 				</div>
 			</div>
-			<div class="col-sm-8 info">
-				<div class="col-sm-6">
-					<h4>Личный кабинет</h4>
-				</div>
-				<div class="col-sm-6 text-right">
-					<p style="margin-top: 10px;">{{first_name}} {{last_name}}</p>
-				</div>
-				<br/>
-				<hr/>
-				<div class="col-sm-6" style="background-color: #f0f3fa; color:#000; border-radius: 1em; padding-top: 1%; padding-bottom: 1%;">
-					<form method="post">{% csrf_token %}
-                      <div class="form-group">
-				    {{form}}
-				  </div>
-				  <button type="submit" class="btn btn-primary">Submit</button>
+			<div class="col-sm-8" style="background-color: #FFF; border-radius: 1em;">
+					<h4 class="text-center">Анкетирование</h4>
+					<hr>
+					<div class="table-wrapper-scroll-y my-custom-scrollbar">
+					
+				<form method="post" action="">{% csrf_token %}
+					<table class="table">
+						<tr>
+							<td>
+								{{form}}
+							</td>
+							<td>
+								<input type="submit" class="btn btn-success button-send" value="Записать">	
+							</td>
+						</tr>
+					</table>
 				</form>
-				</div>
-				<div class="col-sm-6" style="padding-top: 1%; padding-bottom: 1%;">
-					<div class="col-sm-8">
-					<p>Всего заданий выполнено:</p>
-					<p><strong>{{first_name}} {{last_name}}</strong></p>
-					<p>Выполнено: {{ homework }} д/з</p>	
-					</div>
-					<div class="col-sm-4">
-						Тип: {{typeu}}
-					</div>
-					<button class="btn btn-default">Перейти к списку</button>
-				</div>
-
+			 
 			</div>
 			
 		</div>

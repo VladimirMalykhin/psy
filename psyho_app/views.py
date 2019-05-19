@@ -43,7 +43,7 @@ class RegisterFormView(FormView):
 
 class LoginFormView(FormView):
     form_class = AuthenticationForm
-    template_name = "index.html"
+    template_name = "auth.html"
     success_url = "/account"
     def form_valid(self, form):
         self.user = form.get_user()
@@ -70,6 +70,12 @@ def account_view(request ):
         last_name = request.user.last_name
         homework = Homework.objects.filter(user=request.user, status=2) | Homework.objects.filter(user=request.user, status=3)
         number_not_read = Chat.objects.filter(is_readed=False, type_message=1, user=request.user).count()
+        answer = Answers.objects.filter(user=request.user)
+        type_user = profile.type_user
+        if type_user is "":
+            typeu = "None"
+        else:
+            typeu = type_user
         return render(request, 'cabinet.html', {
           'bg':bg,
           'first_name':first_name,
@@ -77,6 +83,7 @@ def account_view(request ):
           'count':number_not_read,
           'has_music': profile.has_music,
           'homework':homework.count(),
+          'typeu': typeu,
         })
     else:
         return HttpResponseRedirect('/auth/')
@@ -183,6 +190,80 @@ def homeworks_user_view(request, todo_id):
           'checked':checked,
           'form':form,
           'has_music': profile.has_music,
+        })
+    else:
+        return HttpResponseRedirect('/auth/')
+
+
+def main_views(request):
+    return render(request, 'index.html', {
+        
+        })
+
+
+def anketa_view(request):
+    if request.user.is_authenticated:
+        if request.user.is_superuser:
+           return HttpResponseRedirect('/account/')
+        profile = Profile.objects.get(user=request.user)
+        bg = profile.bg
+        form = AnketaForm()
+        type_user = profile.type_user
+        psyhotype = ""
+        if type_user is "":
+            typeu = "None"
+        else:
+            typeu = type_user
+        if request.method == 'POST':
+            if form.is_valid():
+                form = AnketaForm(request.POST)
+                one = form.cleaned_data['one']
+	        two = form.cleaned_data['two']
+	        three = form.cleaned_data['three']
+	        four = form.cleaned_data['four']
+	        five = form.cleaned_data['five']
+	        six = form.cleaned_data['six']
+	        seven = form.cleaned_data['seven']
+	        eight = form.cleaned_data['eight']
+	        nine = form.cleaned_data['nine']
+	        ten = form.cleaned_data['ten']
+	        eleven = form.cleaned_data['eleven']
+	        twelve = form.cleaned_data['twelve']
+	        thirteen = form.cleaned_data['thirteen']
+	        fourteen = form.cleaned_data['fourteen']
+	        fiveteen = form.cleaned_data['fiveteen']
+	        sixteen = form.cleaned_data['sixteen']
+	        seventeen = form.cleaned_data['seventeen']
+	        eighteen = form.cleaned_data['eighteen']
+	        nineteen = form.cleaned_data['nineteen']
+	        twenty = form.cleaned_data['twenty']
+	        twentyone = form.cleaned_data['twentyone']
+	        twentytwo = form.cleaned_data['twentytwo']
+	        twentythree = form.cleaned_data['twentythree']
+                if one is True:
+                    psyhotype = 'Astenic'
+                elif two is True:
+                    psyhotype = 'Senzitive'
+                elif three is True:
+                    psyhotype = 'Shizoid'
+                elif four is True:
+                    psyhotype = 'Labil'
+                elif five is True:
+                    psyhotype = 'Hypertim'
+                elif six is True:
+                    psyhotype = 'Epiliptoid'
+                elif seven is True:
+                    psyhotype = 'Isteroid'
+                elif eight is True:
+                    psyhotype = 'Neustoichivy'
+		answer = Answers(one=one, two=two, three=tree, four=four, five=five, six=six, seven=seven, eight=eight, nine=nine, ten=ten, eleven=eleven, twelve=twelve, thirteen=thirteen, fourteen=fourteen, fiveteen=fiveteen, sixteen=sixteen, seventeen=seventeen, eighteen=eighteen, nineteen=nineteen, twenty=twenty, twentyone=twentyone, twentytwo=twentytwo, twentythree=twentythree, user=request.user, type_user=psyhotype)				
+                answer.save()
+	    else:
+		return HttpResponseRedirect('/accoount')
+        return render(request, 'anketa.html', {
+          'form':form,
+          'typeu':typeu,
+          'bg':bg,
         })
     else:
         return HttpResponseRedirect('/auth/')
@@ -462,6 +543,11 @@ def view_user(request, todo_id):
         bg = profile.bg
         first_name = user.first_name
         last_name = user.last_name
+        type_user = profile.type_user
+        if type_user == "":
+            typeu = "None"
+        else:
+            typeu = type_user
         number_not_read = Chat.objects.filter(is_readed=False, type_message=2, user=user).count()
         if request.method == 'POST':
             form = ChangeColorForm(request.POST)
@@ -477,6 +563,7 @@ def view_user(request, todo_id):
                'user':user,
                'count':number_not_read,
                'has_music': profile.has_music,
+               'typeu':typeu,
                })
         return render(request, 'cabinet_users.html', {
           'form':form,
@@ -486,6 +573,7 @@ def view_user(request, todo_id):
           'user':user,
           'count':number_not_read,
           'has_music': profile.has_music,
+          'typeu':typeu,
         })
     else:
         return HttpResponseRedirect('/auth/')

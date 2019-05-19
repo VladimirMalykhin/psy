@@ -4,3 +4,5 @@ from .models import *
 admin.site.register(Profile)
 admin.site.register(Chat)
 admin.site.register(Music)
+admin.site.register(Anketa)
+admin.site.register(Answers)

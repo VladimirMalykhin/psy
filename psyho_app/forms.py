@@ -40,6 +40,10 @@ class MusicForm(forms.ModelForm):
         model = Music
         exclude = ["created_at","user", "is_readed"]
 
+class AnketaForm(forms.ModelForm):
+    class Meta:
+        model = Answers
+        exclude = ["psyhotype", "user"]
 
 class ChangeColorForm(forms.ModelForm):
     class Meta:
