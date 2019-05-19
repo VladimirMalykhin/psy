@@ -62,8 +62,9 @@
 					<h4 class="text-center">Анкетирование</h4>
 					<hr>
 					<div class="table-wrapper-scroll-y my-custom-scrollbar">
-					
-				<form method="post" action="">{% csrf_token %}
+				{% if typeu == "None" %}
+				<form method="post" action="">
+                    {% csrf_token %}
 					<table class="table">
 						<tr>
 							<td>
@@ -75,7 +76,9 @@
 						</tr>
 					</table>
 				</form>
-			 
+			 {%  else  %}
+                        Test completed
+                        {% endif %}
 			</div>
 			
 		</div>
